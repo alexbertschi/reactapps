@@ -10,9 +10,10 @@ class App extends Component {
   async loadBlockchainData() {
     const web3 = new Web3(Web3.givenProvider || "http://localhost:7545")
     const accounts = await web3.eth.getAccounts()
-    const detail = await web3.eth.currentProvider
+    const detail = await web3.eth.getBalance(accounts[0])
+    //await web3.eth.currentProvider
     //getBalance(accounts[0])
-    this.setState({ account: accounts, details: detail.networkVersion})
+    this.setState({ account: accounts, details: detail})
   }
 
   constructor(props) {
