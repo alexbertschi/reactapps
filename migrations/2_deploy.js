@@ -1,5 +1,5 @@
 // migrations/2_deploy.js
-const { artifacts } = require("truffle");
+//const { artifacts } = require("truffle");
 
 const Liontoken = artifacts.require('Liontoken');
 
