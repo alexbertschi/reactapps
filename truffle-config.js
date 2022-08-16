@@ -17,8 +17,9 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-
-// const HDWalletProvider = require('@truffle/hdwallet-provider');
+const { alchemyAPIKey, mnemonicphrase } = require('./secrets.json');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+//const { network } = require('hardhat');
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
@@ -60,6 +61,16 @@ module.exports = {
     //
     // Useful for deploying to a public network.
     // Note: It's important to wrap the provider as a function to ensure truffle uses a new provider every time.
+
+    goerli: {
+      provider: () => new HDWalletProvider({
+        mnemonic: mnemonicphrase,
+        providerOrUrl: 'https://eth-goerli.g.alchemy.com/v2/Vigceq-6VfIxDu3jdlTw60M2J0YB4URb'
+      }),
+      network_id: 5,
+      networkCheckTimeoutnetworkCheckTimeout: 10000,
+      timeoutBlocks: 200
+    }
     // ropsten: {
     //   provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/YOUR-PROJECT-ID`),
     //   network_id: 3,       // Ropsten's id

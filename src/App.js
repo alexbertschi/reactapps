@@ -79,7 +79,7 @@ class App extends Component {
       });
       
     } else {
-      const contractAddress = '0xc3d7B7Bb93d9c2D3E30f935eeD3Da0Dd52f9384B'
+      const contractAddress = '0xD03c25F1d86379a8fc8362c6D07441456BBfa340'
       console.log('2')
       var MyContract = new web3.eth.Contract(abiArray.abi, contractAddress);
       console.log('3')
