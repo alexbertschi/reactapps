@@ -3,7 +3,6 @@ import Web3 from 'web3'
 import './App.css'
 import abiArray from './Liontoken.json'
 import ToggleButton from 'react-toggle-button'
-//import Dropdown from 'react-bootstrap/Dropdown';
 
 let nonce = '';
 let web3 = '';
@@ -14,21 +13,34 @@ class App extends Component {
     this.loadBlockchainData()
   }
 
-  async loadBlockchainData() {
-    web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-    const accounts = await web3.eth.getAccounts();
-    const detail = await web3.eth.getBalance(accounts[0]);
-    this.setState({account: accounts, details: detail});
-  }
-
   constructor(props) {
     super(props)
     this.state = {receiver: '', asset: false, web: '', account: '', details: 'test', formvalue: '', lionbalance: '', transactionoutput: ''}
     this.handleChange = this.handleChange.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.fireTransation = this.fireTransation.bind(this);
-    //this.dropdownSelection = this.dropdownSelection.bind(this);
+  }
+
+  async loadBlockchainData() {
+
+    window.ethereum
+    .request({ method: 'eth_requestAccounts' })
+    .catch((error) => {
+      if (error.code === 4001) {
+        // EIP-1193 userRejectedRequest error
+        alert('Please connect to MetaMask and reload the page.');
+        return
+      } else {
+        console.error(error);
+        alert('Please connect to MetaMask and reload the page.');
+        return
+      }
+    });
+
+    web3 = new Web3(Web3.givenProvider);
+    const accountarray = await web3.eth.getAccounts();
+    this.setState({account: accountarray});
+
   }
 
   handleChange(event) {
@@ -41,16 +53,11 @@ class App extends Component {
 
   async fireTransation(event){
 
-    //event.preventDefault();
-
     if (this.state.asset){
-           
-      console.log(this.state.account[0]);
       const myAddress = this.state.account[0];
-      const myPrivateKey = '941c2f19f148e932a3ae7c0e637a3622fc40ee585dadeea705dc817881173f87';
+      const myPrivateKey = '547f27c2a513f7332bcaa14f5b57c5aec721874e18f91ce1f909e93dd5fa3a4f';
       const ethervalue = this.state.formvalue * 10 ** 18;
       nonce = await web3.eth.getTransactionCount(myAddress, 'latest');
-      console.log(nonce);
       this.setState({transactionoutput: nonce});
 
       const transaction = {
@@ -59,7 +66,6 @@ class App extends Component {
         'gasPrice': 30000,
         'gasLimit': 50000,
         'nonce': nonce,
-        // optional data field to send message or execute smart contract
       };
       
       const signedTx = await web3.eth.accounts.signTransaction(transaction, myPrivateKey);
@@ -73,9 +79,7 @@ class App extends Component {
       });
       
     } else {
-      console.log('1')
-      //const web3 = new Web3(Web3.givenProvider || "http://localhost:7545");
-      const contractAddress = '0x09A1e7b8471855Ac8d4332B3cB54315242fcC3F7'
+      const contractAddress = '0xc3d7B7Bb93d9c2D3E30f935eeD3Da0Dd52f9384B'
       console.log('2')
       var MyContract = new web3.eth.Contract(abiArray.abi, contractAddress);
       console.log('3')
@@ -83,7 +87,7 @@ class App extends Component {
       console.log('4')
       this.setState({lionbalance: result});
 
-      await MyContract.methods.transfer('0x17E32155d034d790Fd8B88Edf949e5fEE6254C44', '1000000').send({from: '0xAf415217D78fb3A13A0F1Fedc3AAdfAEfd2284B7'}, function(error, transactionHash){
+      await MyContract.methods.transfer(this.state.receiver, this.state.formvalue).send({from: this.state.account.toString()}, function(error, transactionHash){
         if (!error) {
           console.log("🎉 The hash of your transaction is: ", transactionHash);
         } else {
@@ -94,53 +98,10 @@ class App extends Component {
     }
   }
 
-  async getResult(){
-
-
-  
-  }
-
-  
-
-  handleSubmit(event) {
-    event.preventDefault();
-    this.getResult()
-  }
-//
   render() {
     return (
-      <div className="container">
-        <div className='Section'>
-        <h2>Smart Contract Simulator</h2>
-        
-        <br/><span> Ether-Balance: {this.state.details}</span>
-        <br/><span>Form Value:  {this.state.formvalue}</span>
-        <br/><span> Liontoken-Balance: {this.state.lionbalance}</span>
-        <br/><span> Transaction Status: {this.state.transactionoutput}</span>
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-      </div>
-{/*       dropdownSelection(event) {
-      this.setState({asset: event});
-      console.log(event)
-
-      <Dropdown onSelect={this.dropdownSelection} >
-              <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                Asset
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu variant="dark">
-                <Dropdown.Item eventKey="Ether">Ether</Dropdown.Item>
-                <Dropdown.Item eventKey="Liontoken">Liontoken</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>  */}
-
       <div className='Section'>
+      
       <h3>Transaction Cockpit</h3>
       
       <table className = 'tablestyle'>
@@ -170,8 +131,8 @@ class App extends Component {
           <tr>
           <td>Asset:</td>
           <td>
-            <td className = 'tdnopadding'>Liontoken</td>
-            <td className = 'tdnopadding'>
+            <div className = 'tdnopadding'>Liontoken</div>
+            <div className = 'tdnopadding'>
           <ToggleButton
             inactiveLabel={' L '}
             activeLabel={' E '}
@@ -181,9 +142,9 @@ class App extends Component {
                 asset: !value,
               })
             }} />
-            </td>
-            <td className = 'tdnopadding'>Ether
-            </td>
+            </div>
+            <div className = 'tdnopadding'>Ether
+            </div>
           </td>
           </tr>
           <tr>
@@ -195,8 +156,7 @@ class App extends Component {
           </tbody>
       </table>
       </div>
-      </div>
-      
+           
     );
   }
 }

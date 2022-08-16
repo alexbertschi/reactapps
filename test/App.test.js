@@ -19,5 +19,6 @@
       assert.equal(balance, 'LNT', "10000 wasn't in the first account");
     });
 
-  });
+  })
+  ;
 //})
