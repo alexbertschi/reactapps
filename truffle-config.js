@@ -65,7 +65,7 @@ module.exports = {
     goerli: {
       provider: () => new HDWalletProvider({
         mnemonic: mnemonicphrase,
-        providerOrUrl: 'https://eth-goerli.g.alchemy.com/v2/Vigceq-6VfIxDu3jdlTw60M2J0YB4URb'
+        providerOrUrl: 'https://eth-goerli.g.alchemy.com/v2/'+ {alchemyAPIKey}
       }),
       network_id: 5,
       networkCheckTimeoutnetworkCheckTimeout: 10000,
