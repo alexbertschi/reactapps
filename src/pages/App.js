@@ -1,7 +1,9 @@
+//Page for Token and Ether Transactions
+
 import React, { Component } from 'react'
 import Web3 from 'web3'
-import './App.css'
-import abiArray from './Liontoken.json'
+import '../Main.css'
+import abiArray from '../Liontoken.json'
 import ToggleButton from 'react-toggle-button'
 
 let nonce = '';
