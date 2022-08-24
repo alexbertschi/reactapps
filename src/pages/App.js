@@ -5,9 +5,11 @@ import Web3 from 'web3'
 import '../Main.css'
 import abiArray from '../Liontoken.json'
 import ToggleButton from 'react-toggle-button'
+import detectEthereumProvider from '@metamask/detect-provider';
 
 let nonce = '';
 let web3 = '';
+let connected = false;
 
 class App extends Component {
 
@@ -23,27 +25,38 @@ class App extends Component {
     this.fireTransation = this.fireTransation.bind(this);
   }
 
-  async loadBlockchainData() {
+  async loadBlockchainData() {}
 
-    window.ethereum
-    .request({ method: 'eth_requestAccounts' })
-    .catch((error) => {
-      if (error.code === 4001) {
-        // EIP-1193 userRejectedRequest error
-        alert('Please connect to MetaMask and reload the page.');
-        return
-      } else {
-        console.error(error);
-        alert('Please connect to MetaMask and reload the page.');
-        return
-      }
-    });
 
-    web3 = new Web3(Web3.givenProvider);
-    const accountarray = await web3.eth.getAccounts();
-    this.setState({account: accountarray});
+      /**********************************************************/
+      /* Handle chain (network) and chainChanged (per EIP-1193) */
+      /**********************************************************/
 
+   /*   const chainId = await provider.request({ method: 'eth_chainId' });
+      console.log("Chain ID: " + chainId);
+      //this.handleChainChanged(chainId);
+
+      //provider.on('chainChanged', handleChainChanged);
+
+      // From now on, this should always be true:
+
+      web3 = new Web3(Web3.currentProvider);
+      connected = true;
+      
+      
   }
+
+  //Listens to event when Chain is changed and executes function to reload the page
+
+
+//Reloads the page when Chain is changed
+handleChainChanged(_chainId) {
+  // We recommend reloading the page, unless you must do otherwise
+  window.location.reload();
+
+}
+
+*/
 
   handleChange(event) {
     this.setState({formvalue: event.target.value});

@@ -2,20 +2,17 @@
   
   
   import React, { Component } from 'react'
-  //import Layout from './Layout';
 
 
-  class Home extends Component {
-
-
+  class Wallet extends Component {
 
     render() {
       return (
         <div className='Section'>
-      <h1>Home Page</h1>
+      <h1>You have to connect your wallet</h1>
       </div>
       );
     }
   }
     
-    export default Home;
+    export default Wallet;

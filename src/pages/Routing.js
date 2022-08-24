@@ -8,6 +8,7 @@ import Home from './Home';
 import Layout from "./Layout";
 import Nft from "./Nft";
 import App from "./App";
+import Wallet from "./Wallet";
 
 export default function Routing () {
 
@@ -18,6 +19,7 @@ export default function Routing () {
         <Route index element={<Home />} />
           <Route path="nft" element={<Nft />} />
           <Route path="app" element={<App />} />
+          <Route path="wallet" element={<Wallet />} />
         </Route>
       </Routes>
     </BrowserRouter>
