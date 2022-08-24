@@ -9,7 +9,6 @@ import detectEthereumProvider from '@metamask/detect-provider';
 
 let nonce = '';
 let web3 = '';
-let connected = false;
 
 class App extends Component {
 
@@ -25,8 +24,13 @@ class App extends Component {
     this.fireTransation = this.fireTransation.bind(this);
   }
 
-  async loadBlockchainData() {}
+  async loadBlockchainData() {
 
+  web3 = new Web3(Web3.givenProvider);
+  this.setState({account: await web3.eth.getAccounts()});
+  console.log(this.state.account[0]);
+
+  }
 
       /**********************************************************/
       /* Handle chain (network) and chainChanged (per EIP-1193) */
