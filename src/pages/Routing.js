@@ -9,6 +9,7 @@ import Layout from "./Layout";
 import Nft from "./Nft";
 import App from "./App";
 import Wallet from "./Wallet";
+import CreateNFT from "./CreateNFT";
 
 export default function Routing () {
 
@@ -20,6 +21,7 @@ export default function Routing () {
           <Route path="nft" element={<Nft />} />
           <Route path="app" element={<App />} />
           <Route path="wallet" element={<Wallet />} />
+          <Route path="createnft" element={<CreateNFT />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -39,6 +39,7 @@ class Layout extends Component {
             <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "inactive") } exact="true">Setup</NavLink>
             <NavLink to={this.state.isEnabled ? '/app' : '/wallet'} className={({ isActive }) => (isActive ? "active" : "inactive") } exact="true">Token-Transactions</NavLink>
             <NavLink to={this.state.isEnabled ? '/nft' : '/wallet'} className={({ isActive }) => (isActive ? "active" : "inactive")} exact="true">NFTs</NavLink>
+            <NavLink to={this.state.isEnabled ? '/createnft' : '/wallet'} className={({ isActive }) => (isActive ? "active" : "inactive")} exact="true"> Create NFT</NavLink>
         </div>
       <Outlet />
     </>

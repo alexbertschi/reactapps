@@ -1,13 +1,9 @@
 // Landing Page which describes the basic setup and idea of the page. Ideally it forces the user to connect to metamask before navigating to other items.
   
-  
   import React, { Component } from 'react'
   //import Layout from './Layout';
 
-
   class Home extends Component {
-
-
 
     render() {
       return (

@@ -20,6 +20,12 @@ class Nft extends Component {
     this.loadBlockchainData();
     }
 
+    constructor(props) {
+      super(props)
+      this.state = {img: logo}
+      this.mintNFT = this.mintNFT.bind(this);
+    }
+
       // loading the data from metamask
   async loadBlockchainData() {
 
@@ -41,6 +47,8 @@ class Nft extends Component {
 
     const { data } = await axios.get(tokenURI);
     console.log(data.result);
+    console.log(data.result.image);
+    this.setState({img: data.result.image.toString()});
   
     //the transaction
     const tx = {
@@ -84,7 +92,7 @@ class Nft extends Component {
       <button onClick={this.mintNFT} type="button">Mint NFT</button>
       </div>
         <div>
-        <img src={logo} alt="example" />
+        <img src={this.state.img} alt="example" />
         </div>
       </div>
       );
