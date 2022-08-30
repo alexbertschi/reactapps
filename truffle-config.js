@@ -17,7 +17,8 @@
  * phrase from a file you've .gitignored so it doesn't accidentally become public.
  *
  */
-const { alchemyAPIKey, mnemonicphrase } = require('./secrets.json');
+//const { alchemyAPIKey, mnemonicphrase } = require('./secrets.json');
+const { mnemonicphrase } = require('./secrets.json');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 //const { network } = require('hardhat');
 //
@@ -65,11 +66,14 @@ module.exports = {
     goerli: {
       provider: () => new HDWalletProvider({
         mnemonic: mnemonicphrase,
-        providerOrUrl: 'https://eth-goerli.g.alchemy.com/v2/'+ {alchemyAPIKey}
+        providerOrUrl: 'wss://eth-goerli.g.alchemy.com/v2/Vigceq-6VfIxDu3jdlTw60M2J0YB4URb' //+ {alchemyAPIKey}
       }),
       network_id: 5,
-      networkCheckTimeoutnetworkCheckTimeout: 10000,
-      timeoutBlocks: 200
+      gas: 3000000,
+      gasPrice: 400000000,
+      networkCheckTimeout: 10000000,
+      timeoutBlocks: 200,
+      //websocket: true,
     }
     // ropsten: {
     //   provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/YOUR-PROJECT-ID`),
