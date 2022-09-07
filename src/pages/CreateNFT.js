@@ -28,21 +28,17 @@ class CreateNFT extends Component {
     this.handleChangeAccount = this.handleChangeAccount.bind(this);
   }
 
-  //This method is called in the beginning and initializes the web3 object
-  componentDidMount() {
-    this.loadBlockchainData();
-    }
+ //This method is called in the beginning and initializes the web3 object
+ componentDidMount() {
+  this.loadBlockchainData();
+  }
 
-  // loading the data from metamask
-  async loadBlockchainData() {
+    // loading the data from metamask
+    async loadBlockchainData() {
 
-  web3 = new Web3(Web3.givenProvider);
-  MyContract = new web3.eth.Contract(NFT.abi, contractAddress);
-  
-}
+    web3 = new Web3(Web3.givenProvider);
+    MyContract = new web3.eth.Contract(NFT.abi, contractAddress);
 
-    handleChange(e) {
-      this.setState({value: e.target.value});
     }
 
     handleChange = (e) => {
@@ -56,13 +52,14 @@ class CreateNFT extends Component {
         accountvalue =this.state.accountvalue;
       });
     }
-  
-    handleSubmit(e) {
-      this.drawText(this.state.value)
-      e.preventDefault();
-    }
-
-  drawText(_txt) {
+    
+    
+      handleSubmit(e) {
+        this.drawText(this.state.value)
+        e.preventDefault();
+      }
+    
+    drawText(_txt) {
     canvas = document.querySelector("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -207,6 +204,6 @@ async mintNFT() {
     );
   
 }
-}
+  }
 
 export default CreateNFT;

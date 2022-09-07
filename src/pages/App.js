@@ -107,7 +107,9 @@ handleChainChanged(_chainId) {
         'gasLimit': 50000,
         'nonce': nonce,
       };
-         
+       
+      //check
+      
       //Send transaction sends an unsigned transaction. To sign it, it would be required to store the private key of the sender account
       web3.eth.sendTransaction(transaction, function(error, hash) {
       if (!error) {
@@ -131,7 +133,7 @@ handleChainChanged(_chainId) {
       }); 
 
     }
-  }
+  }//
 
   render() {
     return (
