@@ -1,164 +1,172 @@
 /* Main CSS File */
 
 main {
-    margin-top: 60px;
-  }
+  margin-top: 60px;
+}
 
-    body {
-    
-    margin-top: 60px;
-    margin-bottom: 60px;
+  body {
   
-    color: rgb(209, 209, 209);
-    background-color: black;
-  }
+  margin-top: 60px;
+  margin-bottom: 60px;
 
-  /* Add a black background color to the top navigation */
+  color: rgb(209, 209, 209);
+  background-color: black;
+}
+
+/* Add a black background color to the top navigation */
 .topnav {
-  background-color: rgb(0, 0, 0);
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  height: 50px;
-  border-radius: 10px;
-  vertical-align: middle;
+background-color: rgb(0, 0, 0);
+margin-left: auto;
+margin-right: auto;
+width: 70%;
+height: 50px;
+border-radius: 10px;
+vertical-align: middle;
 }
 
 .inactive {
-  color: #f2f2f2;
-  /*background-color: #333;*/
-  text-align: center;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: auto;
-  padding-bottom: auto;
-  font-size: 17px;
-  text-decoration: none;
-  vertical-align: top;
-  position: relative;
+color: #f2f2f2;
+/*background-color: #333;*/
+text-align: center;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: auto;
+padding-bottom: auto;
+font-size: 17px;
+text-decoration: none;
+vertical-align: top;
+position: relative;
 }
 
 .active {
-  color: #ffffff;
-  /*background-color: #04AA6D; */
-  text-align: center;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: auto;
-  padding-bottom: 10px;
-  border-bottom-color: #ffffff;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  font-size: 17px;
-  text-decoration: none;
-  vertical-align: middle;
+color: #ffffff;
+/*background-color: #04AA6D; */
+text-align: center;
+padding-left: 30px;
+padding-right: 30px;
+padding-top: auto;
+padding-bottom: 10px;
+border-bottom-color: #ffffff;
+border-bottom-style: solid;
+border-bottom-width: 2px;
+font-size: 17px;
+text-decoration: none;
+vertical-align: middle;
 
-  font-weight: bold;
+font-weight: bold;
 }
 
 /* Change the color of links on hover */
 NavLink:hover {
-  background-color: #ddd;
-  color: black;
-  text-decoration: none;
+background-color: #ddd;
+color: black;
+text-decoration: none;
 }
 
-  form {
-    width: 600px;
-    margin-bottom: 10px;
-  }
+form {
+  width: 600px;
+  margin-bottom: 10px;
+}
 
-  canvas {
-      background-color: black;
-      margin-top: 30px;
+canvas {
+    background-color: black;
+    margin-top: 30px;
 
-  }
-  p {
-    float:left;
-  }
+}
+p {
+  float:left;
+}
 
-  input {
-    background-color: rgb(55, 55, 55);
-    border-radius: 5px;
-    border-style: solid;
-    border-color: rgb(209, 209, 209);
-    border-width: 1px;
-    color:rgb(209, 209, 209);
-    padding-left: 5px;
+input {
+  background-color: rgb(55, 55, 55);
+  border-radius: 5px;
+  border-style: solid;
+  border-color: rgb(209, 209, 209);
+  border-width: 1px;
+  color:rgb(209, 209, 209);
+  padding-left: 5px;
 
-  }
+}
 
-  /*  Special class for form on Create NFT Page*/
-   .divStyle {
-    display: inline-block;
-    height: 70px;
-    width: 220px;
-    padding: 20px 0px;
-  }
+/*  Special class for form on Create NFT Page*/
+ .divStyle {
+  display: inline-block;
+  height: 70px;
+  width: 220px;
+  padding: 20px 0px;
+}
 
-  button {
-    color: rgb(209, 209, 209);
-    background-color: rgb(55, 55, 55);
-    border-radius: 24px;
-    border-style: solid;
-    border-color: rgb(209, 209, 209);
-    border-width: 1px;
-    opacity: 1;
-    font-size: 12px;
-    font-weight: bold;
-    box-shadow: rgb(209 209 209 / 30%) 0 1px 3px 0, rgb(209 209 209 / 15%) 0 4px 8px 3px;
-    padding: 10px 30px;
-    display: block;
-  }
+select {
+  background-color: rgb(55, 55, 55);
+  display: block;
+  color: rgb(209, 209, 209);
+  border-radius: 5px;
+  margin-top:10px;
+}
 
-  button:hover {
-    opacity: 0.6;
-  }
-  
-  ul {
-    margin-bottom: 0px;
-  }
+button {
+  color: rgb(209, 209, 209);
+  background-color: rgb(55, 55, 55);
+  border-radius: 24px;
+  border-style: solid;
+  border-color: rgb(209, 209, 209);
+  border-width: 1px;
+  opacity: 1;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: rgb(209 209 209 / 30%) 0 1px 3px 0, rgb(209 209 209 / 15%) 0 4px 8px 3px;
+  padding: 10px 30px;
+  display: block;
+}
+
+button:hover {
+  opacity: 0.6;
+}
+
+ul {
+  margin-bottom: 0px;
+}
 
 
 .Section {
-  background-color: rgb(55, 55, 55);
-  border-radius: 10px;
-  padding: 35px 35px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
+background-color: rgb(55, 55, 55);
+border-radius: 10px;
+padding: 35px 35px;
+margin-top: 30px;
+margin-left: auto;
+margin-right: auto;
+width: 70%;
 }
 
 table,
 .tableclass {
-  width: 65%;
-  padding: 10px 10x;
-  vertical-align: middle;
-  
+width: 65%;
+padding: 10px 10x;
+vertical-align: middle;
+
 } 
 
 th,
 th { 
-  width: 180px;
-  padding: 10px 20px;
+width: 180px;
+padding: 10px 20px;
 } 
 
 tr,
 tr { 
-  padding: 5px;
+padding: 5px;
 
 }
 
 td,
 td { 
-  padding: 10px 20px;
-  width: 400px;
+padding: 10px 20px;
+width: 400px;
 
 }
 
 .tdnopadding {
-  padding: 0px 20px 0px 0px;
-  float: left;
+padding: 0px 20px 0px 0px;
+float: left;
 
 }
