@@ -6,9 +6,11 @@
   import Web3 from 'web3'
   import NFT from '../NFT.json'
   
-  const contractAddress = '0x5001C3da127e26dab3be649A3B173A1535533F17';
-  const PUBLIC_KEY = '0x15607999a4473646c2DFEda6108a714586c3CBdb';
-  const PRIVATE_KEY = '834bfd95e6a6e52c7f5bd8b8704fb3e42e643066aa75989ef2693510d3095468';
+
+  const { contractAddress, PUBLIC_KEY, PRIVATE_KEY } = require('../secrets.json');
+  //const pinataSDK = require('@pinata/sdk');
+ // const pinata = pinataSDK('yourPinataApiKey', 'yourPinataSecretApiKey');
+
   let canvas = document.querySelector("canvas");
   let web3 = '';
   let MyContract = '';
@@ -21,7 +23,7 @@
 
     constructor(props) {
       super(props);
-      this.state = {value: '', accountvalue: '0x15607999a4473646c2DFEda6108a714586c3CBdb'};
+      this.state = {value: '', accountvalue: PUBLIC_KEY};
 
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);

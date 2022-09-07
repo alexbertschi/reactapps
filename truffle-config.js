@@ -18,7 +18,7 @@
  *
  */
 //const { alchemyAPIKey, mnemonicphrase } = require('./secrets.json');
-const { mnemonicphrase } = require('./secrets.json');
+const { mnemonicphrase } = require('./src/secrets.json');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 //const { network } = require('hardhat');
 //
