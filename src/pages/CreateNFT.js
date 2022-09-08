@@ -9,6 +9,8 @@
   const contractAddress = '0x5001C3da127e26dab3be649A3B173A1535533F17';
   const PUBLIC_KEY = '0x15607999a4473646c2DFEda6108a714586c3CBdb';
   const PRIVATE_KEY = '834bfd95e6a6e52c7f5bd8b8704fb3e42e643066aa75989ef2693510d3095468';
+
+  
   let canvas = document.querySelector("canvas");
   let web3 = '';
   let MyContract = '';
@@ -38,8 +40,7 @@
 
     web3 = new Web3(Web3.givenProvider);
     MyContract = new web3.eth.Contract(NFT.abi, contractAddress);
-    
-  }
+    }
 
       handleChange(e) {
         this.setState({value: e.target.value});
@@ -90,24 +91,7 @@
       }
       img.src = pic; 
       }
-/* 
-  async createPicture() {
-    canvas = document.querySelector("canvas");  
-    document.getElementById("MyPix").src = canvas.toDataURL("image/png");
-    console.log(canvas.toDataURL("image/png"));
-    var body = canvas.toDataURL("image/png")
-    console.log(body);
-    var bytestream = '{"Name": "'+ this.state.value +'", "TokenId: "' + TokenId +', "data": "'+ body.replace('data:image/png;base64,','' )+'"}';
-    console.log(bytestream);
-    await axios.post('https://tranquil-ravine-36359.herokuapp.com/return', bytestream)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
- */
+
   async mintNFT() {
     const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, "latest") //get latest nonce
 
