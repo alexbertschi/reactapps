@@ -7,9 +7,7 @@
   import NFT from '../NFT.json'
   
 
-  const { contractAddress, PUBLIC_KEY, PRIVATE_KEY } = require('../secrets.json');
-  //const pinataSDK = require('@pinata/sdk');
- // const pinata = pinataSDK('yourPinataApiKey', 'yourPinataSecretApiKey');
+  const { contractAddress, PUBLIC_KEY, PRIVATE_KEY} = require('../secrets.json');
 
   let canvas = document.querySelector("canvas");
   let web3 = '';
