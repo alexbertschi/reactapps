@@ -5,7 +5,6 @@
   import axios from 'axios';
   import Web3 from 'web3'
   import NFT from '../NFT.json'
-  
 
   const { contractAddress, PUBLIC_KEY, PRIVATE_KEY} = require('../secrets.json');
 
@@ -38,8 +37,7 @@
 
     web3 = new Web3(Web3.givenProvider);
     MyContract = new web3.eth.Contract(NFT.abi, contractAddress);
-    
-  }
+    }
 
       handleChange(e) {
         this.setState({value: e.target.value});
@@ -90,24 +88,7 @@
       }
       img.src = pic; 
       }
-/* 
-  async createPicture() {
-    canvas = document.querySelector("canvas");  
-    document.getElementById("MyPix").src = canvas.toDataURL("image/png");
-    console.log(canvas.toDataURL("image/png"));
-    var body = canvas.toDataURL("image/png")
-    console.log(body);
-    var bytestream = '{"Name": "'+ this.state.value +'", "TokenId: "' + TokenId +', "data": "'+ body.replace('data:image/png;base64,','' )+'"}';
-    console.log(bytestream);
-    await axios.post('https://tranquil-ravine-36359.herokuapp.com/return', bytestream)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
- */
+
   async mintNFT() {
     const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, "latest") //get latest nonce
 
